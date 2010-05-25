@@ -43,7 +43,7 @@ module Warden
       def authenticate!
         if params.include?('warden_oauth_provider')
           store_request_token_on_session
-          redirect!(request_token.authorize_url)
+          redirect!(request_token.authorize_url(config.options[:authorize_options]))
           throw(:warden)
         elsif params.include?('oauth_token')
           load_request_token_from_session
