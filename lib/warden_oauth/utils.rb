@@ -36,7 +36,7 @@ module Warden
       # Used to send to OAuth provider complete initial request path.
       #
       def request_path(request)
-        "#{host_with_path(request)}#{request.path}"
+        "#{host_with_port(request)}#{request.path}"
       end
 
       module_function :camelize, :host_with_port, :request_path
